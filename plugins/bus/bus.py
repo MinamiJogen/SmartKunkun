@@ -22,7 +22,7 @@ class BusReminder(Plugin):
             return
         content = e_context['context'].content[:]
         clist = e_context['context'].content.split(maxsplit=1)
-        if clist[0] == "巴士报站":
+        if clist[0] == "$巴士":
             response = requests.get(UM_BUS_LOOP)
             html = response.content
             soup = BeautifulSoup(html, 'html.parser')
