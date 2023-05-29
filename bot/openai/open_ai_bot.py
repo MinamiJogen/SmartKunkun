@@ -31,10 +31,11 @@ class OpenAIBot(Bot, OpenAIImage):
         # acquire reply content
         if context and context.type:
             if context.type == ContextType.TEXT:
+                split_strings = query.split(" ", 1)
                 logger.info("[OPEN_AI] query={}".format(query))
+                print(split_strings[1])
                 session_id = context['session_id']
                 reply = None
-                split_strings = query.split(" ", 1)
                 prefix=["GPT-4", "gpt-4","GPT4","gpt4"]
                 if query == '#清除记忆':
                     self.sessions.clear_session(session_id)
@@ -44,6 +45,7 @@ class OpenAIBot(Bot, OpenAIImage):
                     reply = Reply(ReplyType.INFO, '所有人记忆已清除')
                 elif split_strings[0] in prefix:
                     session = self.sessions.session_query(split_strings[1], session_id)
+                    logger.info("[OPEN_AI] query={}".format(split_strings[1]))
                     new_query = str(session)
                     logger.debug("[OPEN_AI] session query={}".format(new_query))
 
