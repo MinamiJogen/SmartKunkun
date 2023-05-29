@@ -151,6 +151,11 @@ class WechatChannel(Channel):
             return
         
         context = self._compose_context(ContextType.TEXT, content, isgroup=False, msg=msg, receiver=other_user_id, session_id=other_user_id)
+        prefix=["GPT-4", "gpt-4","GPT4","gpt4"]
+        split_strings = content.split(" ", 1)
+        if split_strings[0] in prefix:
+            auto_reply="GPT-4 is generating response. This may take a bit of time. GPT-4正在生成回复，这可能需要一些时间。"
+            itchat.send(auto_reply, toUserName=other_user_id)
         if context:
             thread_pool.submit(self.handle, context).add_done_callback(thread_pool_callback)
 
@@ -179,6 +184,11 @@ class WechatChannel(Channel):
             if any([group_name in group_chat_in_one_session, 'ALL_GROUP' in group_chat_in_one_session]):
                 session_id = group_id
             context = self._compose_context(ContextType.TEXT, content, isgroup=True, msg=msg, receiver=group_id, session_id=session_id)
+            prefix=["GPT-4", "gpt-4","GPT4","gpt4"]
+            split_strings = content.split(" ", 1)
+            if split_strings[0] in prefix:
+                auto_reply="GPT-4 currently does not support generating replies within a group. Please stay tuned for future updates. GPT-4暂不支持在群组内生成回复，请期待后续更新。"
+                itchat.send(auto_reply, toUserName=group_id)
             if context:
                 thread_pool.submit(self.handle, context).add_done_callback(thread_pool_callback)
     
