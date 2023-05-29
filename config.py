@@ -7,7 +7,7 @@ from common.log import logger
 # 将所有可用的配置项写在字典里, 请使用小写字母
 available_setting = {
     # openai api配置
-    "open_ai_api_key": "",  # openai api key
+    "open_ai_api_key": "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",  # openai api key
     # openai apibase，当use_azure_chatgpt为true时，需要设置对应的api base
     "open_ai_api_base": "https://api.openai.com/v1",
     "proxy": "",  # openai使用的代理
@@ -16,20 +16,20 @@ available_setting = {
     "use_azure_chatgpt": False,  # 是否使用azure的chatgpt
 
     # Bot触发配置
-    "single_chat_prefix": ["bot", "@bot"],  # 私聊时文本需要包含该前缀才能触发机器人回复
-    "single_chat_reply_prefix": "[bot] ",  # 私聊时自动回复的前缀，用于区分真人
-    "group_chat_prefix": ["@bot"],  # 群聊时包含该前缀则会触发机器人回复
+    "single_chat_prefix": [""],  # 私聊时文本需要包含该前缀才能触发机器人回复
+    "single_chat_reply_prefix": "[来自UM chatGPT的回复]",  # 私聊时自动回复的前缀，用于区分真人
+    "group_chat_prefix": ["@chatGPT in UM"],  # 群聊时包含该前缀则会触发机器人回复
     "group_chat_reply_prefix": "",  # 群聊时自动回复的前缀
     "group_chat_keyword": [],  # 群聊时包含该关键词则会触发机器人回复
     "group_at_off": False,  # 是否关闭群聊时@bot的触发
-    "group_name_white_list": ["ChatGPT测试群", "ChatGPT测试群2"],  # 开启自动回复的群名称列表
+    "group_name_white_list": ["ALL_GROUP"],  # 开启自动回复的群名称列表
     "group_name_keyword_white_list": [],  # 开启自动回复的群名称关键词列表
-    "group_chat_in_one_session": ["ChatGPT测试群"],  # 支持会话上下文共享的群名称
-    "image_create_prefix": ["画", "看", "找"],  # 开启图片回复的前缀
+    "group_chat_in_one_session": ["chatGPT in UM Testing"],  # 支持会话上下文共享的群名称
+    "image_create_prefix": ["画", "看", "找","draw","Draw"],  # 开启图片回复的前缀
 
     # chatgpt会话参数
     "expires_in_seconds": 3600,  # 无操作会话的过期时间
-    "character_desc": "你是ChatGPT, 一个由OpenAI训练的大型语言模型, 你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。",  # 人格描述
+    "character_desc": "你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助澳大同学方便的访问GPT服务，并且可以使用多种语言和语音进行交流。",  # 人格描述
     "conversation_max_tokens": 1000,  # 支持上下文记忆的最多字符数
 
     # chatgpt限流配置
@@ -44,7 +44,7 @@ available_setting = {
     "presence_penalty": 0,
 
     # 语音设置
-    "speech_recognition": False,  # 是否开启语音识别
+    "speech_recognition": True,  # 是否开启语音识别
     "group_speech_recognition": False,  # 是否开启群组语音识别
     "voice_reply_voice": False,  # 是否使用语音回复语音，需要设置对应语音合成引擎的api key
     "voice_to_text": "openai",  # 语音识别引擎，支持openai,google
