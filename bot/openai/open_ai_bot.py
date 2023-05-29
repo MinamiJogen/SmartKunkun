@@ -70,7 +70,7 @@ class OpenAIBot(Bot, OpenAIImage):
             if split_strings[0] in prefix:
                 response = openai.Completion.create(
                     model= "gpt-4",  # 对话模型的名称
-                    prompt=query,
+                    prompt=split_strings[1],
                     temperature=0.9,  # 值在[0,1]之间，越大表示回复越具有不确定性
                     max_tokens=1200,  # 回复最大的字符数
                     top_p=1,
