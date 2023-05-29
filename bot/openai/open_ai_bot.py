@@ -34,12 +34,27 @@ class OpenAIBot(Bot, OpenAIImage):
                 logger.info("[OPEN_AI] query={}".format(query))
                 session_id = context['session_id']
                 reply = None
+                split_strings = query.split(" ", 1)
+                prefix=["GPT-4", "gpt-4","GPT4","gpt4"]
                 if query == '#清除记忆':
                     self.sessions.clear_session(session_id)
                     reply = Reply(ReplyType.INFO, '记忆已清除')
                 elif query == '#清除所有':
                     self.sessions.clear_all_session()
                     reply = Reply(ReplyType.INFO, '所有人记忆已清除')
+                elif split_strings[0] in prefix:
+                    session = self.sessions.session_query(split_strings[1], session_id)
+                    new_query = str(session)
+                    logger.debug("[OPEN_AI] session query={}".format(new_query))
+
+                    total_tokens, completion_tokens, reply_content = self.reply_text(new_query, session_id, 0)
+                    logger.debug("[OPEN_AI] new_query={}, session_id={}, reply_cont={}, completion_tokens={}".format(new_query, session_id, reply_content, completion_tokens))
+
+                    if total_tokens == 0 :
+                        reply = Reply(ReplyType.ERROR, reply_content)
+                    else:
+                        self.sessions.session_reply(reply_content, session_id, total_tokens)
+                        reply = Reply(ReplyType.TEXT, reply_content)
                 else:
                     session = self.sessions.session_query(query, session_id)
                     new_query = str(session)
@@ -65,30 +80,16 @@ class OpenAIBot(Bot, OpenAIImage):
 
     def reply_text(self, query, session_id, retry_count=0):
         try:
-            split_strings = query.split(" ", 1)
-            prefix=["GPT-4", "gpt-4","GPT4","gpt4"]
-            if split_strings[0] in prefix:
-                response = openai.Completion.create(
-                    model= "gpt-4",  # 对话模型的名称
-                    prompt=split_strings[1],
-                    temperature=0.9,  # 值在[0,1]之间，越大表示回复越具有不确定性
-                    max_tokens=1200,  # 回复最大的字符数
-                    top_p=1,
-                    frequency_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
-                    presence_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
-                    stop=["\n\n\n"]
-                )
-            else:
-                response = openai.Completion.create(
-                    model= conf().get("model") or "text-davinci-003",  # 对话模型的名称
-                    prompt=query,
-                    temperature=0.9,  # 值在[0,1]之间，越大表示回复越具有不确定性
-                    max_tokens=1200,  # 回复最大的字符数
-                    top_p=1,
-                    frequency_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
-                    presence_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
-                    stop=["\n\n\n"]
-                )
+            response = openai.Completion.create(
+                model= conf().get("model") or "text-davinci-003",  # 对话模型的名称
+                prompt=query,
+                temperature=0.9,  # 值在[0,1]之间，越大表示回复越具有不确定性
+                max_tokens=1200,  # 回复最大的字符数
+                top_p=1,
+                frequency_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
+                presence_penalty=0.0,  # [-2,2]之间，该值越大则更倾向于产生不同的内容
+                stop=["\n\n\n"]
+            )
             res_content = response.choices[0]['text'].strip().replace('<|endoftext|>', '')
             total_tokens = response["usage"]["total_tokens"]
             completion_tokens = response["usage"]["completion_tokens"]
