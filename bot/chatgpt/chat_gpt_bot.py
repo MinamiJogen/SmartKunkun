@@ -32,7 +32,8 @@ class ChatGPTBot(Bot,OpenAIImage):
         # acquire reply content
         if context.type == ContextType.TEXT:
             logger.info("[CHATGPT] query={}".format(query))
-
+            prefix=["GPT-4", "gpt-4","GPT4","gpt4"]
+            split_strings = query.split(" ", 1)
             session_id = context['session_id']
             reply = None
             clear_memory_commands = conf().get('clear_memory_commands', ['#清除记忆'])
@@ -54,7 +55,10 @@ class ChatGPTBot(Bot,OpenAIImage):
             #     # reply in stream
             #     return self.reply_text_stream(query, new_query, session_id)
 
-            reply_content = self.reply_text(session, session_id, 0)
+            if split_strings[0] in prefix:
+                reply_content = self.reply_text(session, session_id, 1, 0)
+            else:
+                reply_content = self.reply_text(session, session_id, 0, 0)
             logger.debug("[CHATGPT] new_query={}, session_id={}, reply_cont={}, completion_tokens={}".format(session.messages, session_id, reply_content["content"], reply_content["completion_tokens"]))
             if reply_content['completion_tokens'] == 0 and len(reply_content['content']) > 0:
                 reply = Reply(ReplyType.ERROR, reply_content['content'])
@@ -78,17 +82,27 @@ class ChatGPTBot(Bot,OpenAIImage):
             reply = Reply(ReplyType.ERROR, 'Bot不支持处理{}类型的消息'.format(context.type))
             return reply
 
-    def compose_args(self):
-        return {
+    def compose_args(self, model_selection):
+        if model_selection==1:
+            return {
+            "model": "gpt-4",  # 对话模型的名称
+            "temperature":conf().get('temperature', 0.9),  # 值在[0,1]之间，越大表示回复越具有不确定性
+            # "max_tokens":4096,  # 回复最大的字符数
+            "top_p":1,
+            "frequency_penalty":conf().get('frequency_penalty', 0.0),  # [-2,2]之间，该值越大则更倾向于产生不同的内容
+            "presence_penalty":conf().get('presence_penalty', 0.0),  # [-2,2]之间，该值越大则更倾向于产生不同的内容
+            }
+        else:
+            return {
             "model": conf().get("model") or "gpt-3.5-turbo",  # 对话模型的名称
             "temperature":conf().get('temperature', 0.9),  # 值在[0,1]之间，越大表示回复越具有不确定性
             # "max_tokens":4096,  # 回复最大的字符数
             "top_p":1,
             "frequency_penalty":conf().get('frequency_penalty', 0.0),  # [-2,2]之间，该值越大则更倾向于产生不同的内容
             "presence_penalty":conf().get('presence_penalty', 0.0),  # [-2,2]之间，该值越大则更倾向于产生不同的内容
-        }
+            }
 
-    def reply_text(self, session:ChatGPTSession, session_id, retry_count=0) -> dict:
+    def reply_text(self, session:ChatGPTSession, session_id, model_selection, retry_count=0) -> dict:
         '''
         call openai's ChatCompletion to get the answer
         :param session: a conversation session
@@ -100,8 +114,8 @@ class ChatGPTBot(Bot,OpenAIImage):
             if conf().get('rate_limit_chatgpt') and not self.tb4chatgpt.get_token():
                 raise openai.error.RateLimitError("RateLimitError: rate limit exceeded")
             response = openai.ChatCompletion.create(
-                messages=session.messages, **self.compose_args()
-            )
+                    messages=session.messages, **self.compose_args(model_selection)
+                )
             # logger.info("[ChatGPT] reply={}, total_tokens={}".format(response.choices[0]['message']['content'], response["usage"]["total_tokens"]))
             return {"total_tokens": response["usage"]["total_tokens"],
                     "completion_tokens": response["usage"]["completion_tokens"],
