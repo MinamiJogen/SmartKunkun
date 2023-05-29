@@ -84,6 +84,7 @@ class ChatGPTBot(Bot,OpenAIImage):
 
     def compose_args(self, model_selection):
         if model_selection==1:
+            logger.info("正在调用gpt-4")
             return {
             "model": "gpt-4",  # 对话模型的名称
             "temperature":conf().get('temperature', 0.9),  # 值在[0,1]之间，越大表示回复越具有不确定性
