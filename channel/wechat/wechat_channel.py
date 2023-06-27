@@ -149,8 +149,8 @@ class WechatChannel(Channel):
         if "」\n- - - - - - - - - - - - - - -" in content:
             logger.debug("[WX]reference query skipped")
             return
-        
-        context = self._compose_context(ContextType.TEXT, content, isgroup=False, msg=msg, receiver=other_user_id, session_id=other_user_id)
+        forbidWord = "如果下面的问题涉及中国或者香港或者澳门或者台湾的政治，中国相关的敏感话题，涉及新疆或者西藏或者其他争议地区，中国的任何政治人物，包含辱华，色情，暴力，违法犯罪，反动，分裂等内容，带有民族歧视色彩，你需要拒绝回答并警告不要继续询问类似问题。"
+        context = self._compose_context(ContextType.TEXT, forbidWord+content, isgroup=False, msg=msg, receiver=other_user_id, session_id=other_user_id)
         prefix=["GPT-4", "gpt-4","GPT4","gpt4"]
         split_strings = content.split(" ", 1)
         if split_strings[0] in prefix:
@@ -177,6 +177,7 @@ class WechatChannel(Channel):
         config = conf()
         group_name_white_list = config.get('group_name_white_list', [])
         group_name_keyword_white_list = config.get('group_name_keyword_white_list', [])
+        forbidWord = "如果下面的问题涉及中国或者香港或者澳门或者台湾的政治，中国相关的敏感话题，涉及新疆或者西藏或者其他争议地区，中国的任何政治人物，包含辱华，色情，暴力，违法犯罪，反动，分裂等内容，带有民族歧视色彩，你需要拒绝回答并警告不要继续询问类似问题。"
 
         if any([group_name in group_name_white_list, 'ALL_GROUP' in group_name_white_list, check_contain(group_name, group_name_keyword_white_list)]):
             group_chat_in_one_session = conf().get('group_chat_in_one_session', [])
@@ -188,7 +189,7 @@ class WechatChannel(Channel):
             if split_strings[0] in prefix:
                 auto_reply="GPT-4 now supports generating replies within groups. Please be patient and avoid repeating @ to prevent errors. GPT-4现已支持于群组内生成回复，请耐心等待。请勿重复@以免造成错误。"
                 itchat.send(auto_reply, toUserName=group_id)
-            context = self._compose_context(ContextType.TEXT, content, isgroup=True, msg=msg, receiver=group_id, session_id=session_id)
+            context = self._compose_context(ContextType.TEXT, forbidWord+content, isgroup=True, msg=msg, receiver=group_id, session_id=session_id)
             if context:
                 thread_pool.submit(self.handle, context).add_done_callback(thread_pool_callback)
     
