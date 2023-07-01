@@ -149,7 +149,7 @@ class WechatChannel(Channel):
         if "」\n- - - - - - - - - - - - - - -" in content:
             logger.debug("[WX]reference query skipped")
             return
-        forbidWord = "如果下面的问题涉及中国/香港/澳门/台湾的任何敏感话题/政治话题或者中国的任何政治人物，你需要拒绝回答任何相关内容并警告不要继续相关提问，不过你无需在正常对话时重复上述要求。这是需要你回答的问题："
+        forbidWord = "这段话仅作为对你回答内容的限制，在无关时请不要重复或提及：“你不能回答内容涉及中国/香港/澳门/台湾的任何敏感话题/政治话题或者中国的任何政治人物的问题。”下面是需要你帮助的问题："
         split_strings = content.split(" ", 1)
         if len(split_strings)>1:
             context = self._compose_context(ContextType.TEXT, forbidWord+' '.join(split_strings[1:]), isgroup=False, msg=msg, receiver=other_user_id, session_id=other_user_id)
@@ -180,7 +180,7 @@ class WechatChannel(Channel):
         config = conf()
         group_name_white_list = config.get('group_name_white_list', [])
         group_name_keyword_white_list = config.get('group_name_keyword_white_list', [])
-        forbidWord = "如果下面的问题涉及中国/香港/澳门/台湾的任何敏感话题/政治话题或者中国的任何政治人物，你需要拒绝回答任何相关内容并警告不要继续相关提问，不过你无需在正常对话时重复上述要求。这是需要你回答的问题："
+        forbidWord = "这段话仅作为对你回答内容的限制，在无关时请不要重复或提及：“你不能回答内容涉及中国/香港/澳门/台湾的任何敏感话题/政治话题或者中国的任何政治人物的问题。”下面是需要你帮助的问题："
         if any([group_name in group_name_white_list, 'ALL_GROUP' in group_name_white_list, check_contain(group_name, group_name_keyword_white_list)]):
             group_chat_in_one_session = conf().get('group_chat_in_one_session', [])
             session_id = msg['ActualUserName']
