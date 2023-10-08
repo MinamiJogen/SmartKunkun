@@ -1,12 +1,11 @@
 {
-  "open_ai_api_key": "YOUR API KEY",
+  "open_ai_api_key": "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",
   "model": "gpt-3.5-turbo",
   "model1": "gpt-4",
   "proxy": "",
   "use_azure_chatgpt": false,
   "single_chat_prefix": [
-    "bot",
-    "@bot"
+    ""
   ],
   "single_chat_prefix_GPT_4": [
     "GPT-4",
@@ -14,26 +13,24 @@
     "GPT4",
     "gpt4"
   ],
-  "single_chat_reply_prefix": "[bot] ",
+  "single_chat_reply_prefix": "[来自GPT的回复]",
   "group_chat_prefix": [
-    "@bot"
+    "@ChatGPT for UMers"
   ],
   "group_name_white_list": [
-    "ChatGPT测试群",
-    "ChatGPT测试群2"
+    "yn楼下的👩‍🎓🐶👨‍🎓"
   ],
   "group_chat_in_one_session": [
-    "ChatGPT测试群"
   ],
   "image_create_prefix": [
     "画",
     "看",
     "找"
   ],
-  "speech_recognition": false,
+  "speech_recognition": true,
   "group_speech_recognition": false,
   "voice_reply_voice": false,
   "conversation_max_tokens": 1000,
   "expires_in_seconds": 3600,
-  "character_desc": "你是ChatGPT, 一个由OpenAI训练的大型语言模型, 你旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。"
+  "character_desc": "你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助澳大同学方便的访问GPT服务，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。"
 }
