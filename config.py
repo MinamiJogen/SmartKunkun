@@ -22,7 +22,7 @@ available_setting = {
     "group_chat_reply_prefix": "",  # 群聊时自动回复的前缀
     "group_chat_keyword": [],  # 群聊时包含该关键词则会触发机器人回复
     "group_at_off": False,  # 是否关闭群聊时@bot的触发
-    "group_name_white_list": ["yn楼下的👩‍🎓🐶👨‍🎓"],  # 开启自动回复的群名称列表
+    "group_name_white_list": ["yn楼下的你我他"],  # 开启自动回复的群名称列表
     "group_name_keyword_white_list": [],  # 开启自动回复的群名称关键词列表
     "group_chat_in_one_session": ["chatGPT in UM Testing"],  # 支持会话上下文共享的群名称
     "image_create_prefix": ["画", "看", "找","draw","Draw"],  # 开启图片回复的前缀
