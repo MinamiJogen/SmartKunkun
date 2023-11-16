@@ -130,7 +130,7 @@ class ChatGPTBot(Bot,OpenAIImage):
                     "content": response.choices[0]['message']['content']}
         except Exception as e:
             need_retry = retry_count < 2
-            result = {"completion_tokens": 0, "content": "我现在有点累了，等会再来吧"}
+            result = {"completion_tokens": 0, "content": "Service is temporarily unavailable, the administrator is actively working on repairs. Thank you for your understanding and support! 服务暂不可用，管理员正在积极修复，感谢您的理解与支持！"}
             if isinstance(e, openai.error.RateLimitError):
                 logger.warn("[CHATGPT] RateLimitError: {}".format(e))
                 result['content'] = "提问太快啦，请休息一下再问我吧"
