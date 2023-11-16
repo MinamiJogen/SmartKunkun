@@ -99,21 +99,21 @@ class OpenAIBot(Bot, OpenAIImage):
             return total_tokens, completion_tokens, res_content
         except Exception as e:
             need_retry = retry_count < 2
-            result = [0,0,"我现在有点累了，等会再来吧"]
+            result = [0,0,"Service is temporarily unavailable, the administrator is actively working on repairs. Thank you for your understanding and support! 服务暂不可用，管理员正在积极修复，感谢您的理解与支持！"]
             if isinstance(e, openai.error.RateLimitError):
                 logger.warn("[OPEN_AI] RateLimitError: {}".format(e))
-                result[2] = "提问太快啦，请休息一下再问我吧"
+                result[2] = "You are asking questions too frequently, please wait for a moment.^_^提问太频繁啦，请稍等片刻吧。"
                 if need_retry:
                     time.sleep(5)
             elif isinstance(e, openai.error.Timeout):
                 logger.warn("[OPEN_AI] Timeout: {}".format(e))
-                result[2] = "我没有收到你的消息"
+                result[2] = "Reply timed out, please try again or submit a simpler question. 回复超时，请重试或提交更简单的问题。"
                 if need_retry:
                     time.sleep(5)
             elif isinstance(e, openai.error.APIConnectionError):
                 logger.warn("[OPEN_AI] APIConnectionError: {}".format(e))
                 need_retry = False
-                result[2] = "我连接不到你的网络"
+                result[2] = "Unable to access OpenAI services. 无法访问Open AI服务。"
             else:
                 logger.warn("[OPEN_AI] Exception: {}".format(e))
                 need_retry = False
