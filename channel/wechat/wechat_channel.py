@@ -149,7 +149,7 @@ class WechatChannel(Channel):
         if "」\n- - - - - - - - - - - - - - -" in content:
             logger.debug("[WX]reference query skipped")
             return
-        forbidWord = "这段话仅作为对你回答内容的限制，在无关时请不要重复或提及：“你不能回答内容涉及中国/香港/澳门/台湾的任何敏感话题/政治话题或者中国的任何政治人物的问题。”下面是需要你帮助的问题："
+        forbidWord = ""
         split_strings = content.split(" ", 1)
         if len(split_strings)>1:
             context = self._compose_context(ContextType.TEXT, forbidWord+' '.join(split_strings[1:]), isgroup=False, msg=msg, receiver=other_user_id, session_id=other_user_id)

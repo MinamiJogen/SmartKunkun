@@ -133,18 +133,18 @@ class ChatGPTBot(Bot,OpenAIImage):
             result = {"completion_tokens": 0, "content": "Service is temporarily unavailable, the administrator is actively working on repairs. Thank you for your understanding and support! 服务暂不可用，管理员正在积极修复，感谢您的理解与支持！"}
             if isinstance(e, openai.error.RateLimitError):
                 logger.warn("[CHATGPT] RateLimitError: {}".format(e))
-                result['content'] = "提问太快啦，请休息一下再问我吧"
+                result['content'] = "Your questions are too frequent, please wait a moment before continuing to ask. 您的提问太频繁啦，稍等一下再继续提问吧。"
                 if need_retry:
                     time.sleep(5)
             elif isinstance(e, openai.error.Timeout):
                 logger.warn("[CHATGPT] Timeout: {}".format(e))
-                result['content'] = "我没有收到你的消息"
+                result['content'] = "Your message was not received correctly, please try again. 没有正确接收到您的消息，请再试一次。"
                 if need_retry:
                     time.sleep(5)
             elif isinstance(e, openai.error.APIConnectionError):
                 logger.warn("[CHATGPT] APIConnectionError: {}".format(e))
                 need_retry = False
-                result['content'] = "无法连接到Open AI"
+                result['content'] = "Unable to connect to Open AI, the administrator is working on repairs. 无法连接到Open AI，管理员正在修复。"
             else:
                 logger.warn("[CHATGPT] Exception: {}".format(e))
                 need_retry = False
