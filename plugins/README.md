@@ -1,6 +1,14 @@
+**Table of Content**
+
+- [插件化初衷](#插件化初衷)
+- [插件安装方法](#插件安装方法)
+- [插件化实现](#插件化实现)
+- [插件编写示例](#插件编写示例)
+- [插件设计建议](#插件设计建议)
+
 ## 插件化初衷
 
-之前未插件化的代码耦合程度高，如果要定制一些个性化功能（如流量控制、接入`NovelAI`画图平台等），需要了解代码主体，避免影响到其他的功能。在实现多个功能后，不但无法调整功能的优先级顺序，功能的配置项也会变得非常混乱。
+之前未插件化的代码耦合程度高，如果要定制一些个性化功能（如流量控制、接入`NovelAI`画图平台等），需要了解代码主体，避免影响到其他的功能。多个功能同时存在时，无法调整功能的优先级顺序，功能配置项也非常混乱。
 
 此时插件化应声而出。
 
@@ -11,7 +19,23 @@
 - [x] 插件化能够自由开关和调整优先级。
 - [x] 每个插件可在插件文件夹内维护独立的配置文件，方便代码的测试和调试，可以在独立的仓库开发插件。
 
-PS: 插件目前仅支持`itchat`
+## 插件安装方法
+
+在本仓库中预置了一些插件，如果要安装其他仓库的插件，有两种方法。
+
+- 第一种方法是在将下载的插件文件都解压到"plugins"文件夹的一个单独的文件夹，最终插件的代码都位于"plugins/PLUGIN_NAME/*"中。启动程序后，如果插件的目录结构正确，插件会自动被扫描加载。除此以外，注意你还需要安装文件夹中`requirements.txt`中的依赖。
+
+- 第二种方法是`Godcmd`插件，它是预置的管理员插件，能够让程序在运行时就能安装插件，它能够自动安装依赖。
+
+    安装插件的命令是"#installp [仓库源](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/plugins/source.json)记录的插件名/仓库地址"。这是管理员命令，认证方法在[这里](https://github.com/zhayujie/chatgpt-on-wechat/tree/master/plugins/godcmd)。
+
+    - 安装[仓库源](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/plugins/source.json)记录的插件：#installp sdwebui
+
+    - 安装指定仓库的插件：#installp https://github.com/lanvent/plugin_sdwebui.git
+
+    在安装之后，需要执行"#scanp"命令来扫描加载新安装的插件（或者重新启动程序）。
+
+安装插件后需要注意有些插件有自己的配置模板，一般要去掉".template"新建一个配置文件。
 
 ## 插件化实现
 
@@ -26,7 +50,9 @@ PS: 插件目前仅支持`itchat`
     1.收到消息 ---> 2.产生回复 ---> 3.包装回复 ---> 4.发送回复
 ```
 
-以下是它们的默认处理逻辑(太长不看，可跳过)：
+以下是它们的默认处理逻辑(太长不看，可跳到[插件编写示例](#插件编写示例))：
+
+**注意以下包含的代码是`v1.1.0`中的片段，已过时，只可用于理解事件，最新的默认代码逻辑请参考[chat_channel](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/channel/chat_channel.py)**
 
 #### 1. 收到消息
 
@@ -67,9 +93,9 @@ PS: 插件目前仅支持`itchat`
     if context.type == ContextType.TEXT or context.type == ContextType.IMAGE_CREATE:
         reply = super().build_reply_content(context.content, context) #文字跟画图交付给chatgpt
     elif context.type == ContextType.VOICE: # 声音先进行语音转文字后，修改Context类型为文字后，再交付给chatgpt
-        msg = context['msg']
-        file_name = TmpDir().path() + context.content
-        msg.download(file_name)
+        cmsg = context['msg']
+        cmsg.prepare()
+        file_name = context.content
         reply = super().build_voice_to_text(file_name)
         if reply.type != ReplyType.ERROR and reply.type != ReplyType.INFO:
             context.content = reply.content # 语音转文字后，将文字内容作为新的context
@@ -81,14 +107,14 @@ PS: 插件目前仅支持`itchat`
 ```
 
 回复`Reply`的定义如下所示，它允许Bot可以回复多类不同的消息。同时也加入了`INFO`和`ERROR`消息类型区分系统提示和系统错误。
-    
+
 ```python
     class ReplyType(Enum):
         TEXT = 1        # 文本
         VOICE = 2       # 音频文件
         IMAGE = 3       # 图片文件
         IMAGE_URL = 4   # 图片URL
-        
+
         INFO = 9
         ERROR = 10
     class Reply:
@@ -101,7 +127,7 @@ PS: 插件目前仅支持`itchat`
 
 根据`Context`和回复`Reply`的类型，对回复的内容进行装饰。目前的装饰有以下两种:
 
-- `TEXT`文本回复，根据是否在群聊中来决定是艾特接收方还是添加回复的前缀。
+- `TEXT`文本回复:如果这次消息需要的回复是`VOICE`，进行文字转语音回复之后再次装饰。 否则根据是否在群聊中来决定是艾特接收方还是添加回复的前缀。
 
 - `INFO`或`ERROR`类型，会在消息前添加对应的系统提示字样。
 
@@ -110,8 +136,11 @@ PS: 插件目前仅支持`itchat`
 ```python
     if reply.type == ReplyType.TEXT:
         reply_text = reply.content
+        if context.get('desire_rtype') == ReplyType.VOICE:
+            reply = super().build_text_to_voice(reply.content)
+            return self._decorate_reply(context, reply)
         if context['isgroup']:
-            reply_text = '@' +  context['msg']['ActualNickName'] + ' ' + reply_text.strip()
+            reply_text = '@' +  context['msg'].actual_user_nickname + ' ' + reply_text.strip()
             reply_text = conf().get("group_chat_reply_prefix", "")+reply_text
         else:
             reply_text = conf().get("single_chat_reply_prefix", "")+reply_text
@@ -130,12 +159,12 @@ PS: 插件目前仅支持`itchat`
 
 目前支持三类触发事件：
 ```
-1.收到消息 
----> `ON_HANDLE_CONTEXT` 
-2.产生回复 
----> `ON_DECORATE_REPLY` 
-3.装饰回复 
----> `ON_SEND_REPLY` 
+1.收到消息
+---> `ON_HANDLE_CONTEXT`
+2.产生回复
+---> `ON_DECORATE_REPLY`
+3.装饰回复
+---> `ON_SEND_REPLY`
 4.发送回复
 ```
 
@@ -151,12 +180,18 @@ PS: 插件目前仅支持`itchat`
 
 ### 1. 创建插件
 
-在`plugins`目录下创建一个插件文件夹`hello`。然后，在该文件夹中创建一个与文件夹同名的`.py`文件`hello.py`。
+在`plugins`目录下创建一个插件文件夹`hello`。然后，在该文件夹中创建``__init__.py``文件，在``__init__.py``中将其他编写的模块文件导入。在程序启动时，插件管理器会读取``__init__.py``的所有内容。
+
 ```
 plugins/
 └── hello
     ├── __init__.py
     └── hello.py
+```
+
+``__init__.py``的内容：
+```
+from .hello import *
 ```
 
 ### 2. 编写插件类
@@ -213,11 +248,11 @@ class Hello(Plugin):
         if content == "Hello":
             reply = Reply()
             reply.type = ReplyType.TEXT
-            msg = e_context['context']['msg']
+            msg:ChatMessage = e_context['context']['msg']
             if e_context['context']['isgroup']:
-                reply.content = "Hello, " + msg['ActualNickName'] + " from " + msg['User'].get('NickName', "Group")
+                reply.content = f"Hello, {msg.actual_user_nickname} from {msg.from_user_nickname}"
             else:
-                reply.content = "Hello, " + msg['User'].get('NickName', "My friend")
+                reply.content = f"Hello, {msg.from_user_nickname}"
             e_context['reply'] = reply
             e_context.action = EventAction.BREAK_PASS # 事件结束，并跳过处理context的默认逻辑
         if content == "End":
@@ -231,5 +266,8 @@ class Hello(Plugin):
 
 - 尽情将你想要的个性化功能设计为插件。
 - 一个插件目录建议只注册一个插件类。建议使用单独的仓库维护插件，便于更新。
+
+  在测试调试好后提交`PR`，把自己的仓库加入到[仓库源](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/plugins/source.json)中。
+
 - 插件的config文件、使用说明`README.md`、`requirement.txt`等放置在插件目录中。
 - 默认优先级不要超过管理员插件`Godcmd`的优先级(999)，`Godcmd`插件提供了配置管理、插件管理等功能。

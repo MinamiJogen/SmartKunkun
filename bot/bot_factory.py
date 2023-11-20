@@ -11,9 +11,11 @@ def create_bot(bot_type):
     :return: bot instance
     """
     if bot_type == const.BAIDU:
-        # Baidu Unit对话接口
-        from bot.baidu.baidu_unit_bot import BaiduUnitBot
-        return BaiduUnitBot()
+        # 替换Baidu Unit为Baidu文心千帆对话接口
+        # from bot.baidu.baidu_unit_bot import BaiduUnitBot
+        # return BaiduUnitBot()
+        from bot.baidu.baidu_wenxin import BaiduWenxinBot
+        return BaiduWenxinBot()
 
     elif bot_type == const.CHATGPT:
         # ChatGPT 网页端web接口
@@ -29,4 +31,16 @@ def create_bot(bot_type):
         # Azure chatgpt service https://azure.microsoft.com/en-in/products/cognitive-services/openai-service/
         from bot.chatgpt.chat_gpt_bot import AzureChatGPTBot
         return AzureChatGPTBot()
+
+    elif bot_type == const.XUNFEI:
+        from bot.xunfei.xunfei_spark_bot import XunFeiBot
+        return XunFeiBot()
+
+    elif bot_type == const.LINKAI:
+        from bot.linkai.link_ai_bot import LinkAIBot
+        return LinkAIBot()
+
+    elif bot_type == const.CLAUDEAI:
+        from bot.claude.claude_ai_bot import ClaudeAIBot
+        return ClaudeAIBot()
     raise RuntimeError
