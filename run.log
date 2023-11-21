@@ -392,3 +392,36 @@ KMS系统的功能通常包括以下方面：
 [INFO][2023-11-20 21:09:58][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]你好！有什么可以帮助你的吗？), receiver=@ed3e8fa389b2abe725e9db7eb8bf10c8d427aec1dfe732b4176988efafa5fec1
 [INFO][2023-11-20 21:10:54][app.py:17] - signal 2 received, exiting...
 [INFO][2023-11-20 21:10:54][config.py:186] - [Config] User datas saved.
+[INFO][2023-11-20 21:15:26][config.py:198] - 配置文件不存在，将使用config-template.json模板
+[INFO][2023-11-20 21:15:26][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自GPT的回复]', 'group_chat_prefix': ['@ChatGPT for UMers'], 'group_name_white_list': ['yn楼下的你我他'], 'group_chat_in_one_session': ['yn楼下的你我他'], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是GPT for UMers，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': False, 'linkai_api_key': '', 'linkai_app_code': ''}
+[INFO][2023-11-20 21:15:26][config.py:175] - [Config] User datas loaded.
+[WARNING][2023-11-20 21:15:26][audio_convert.py:9] - import pysilk failed, wechaty voice message will not be supported.
+[INFO][2023-11-20 21:15:26][plugin_manager.py:50] - Loading plugins config...
+[INFO][2023-11-20 21:15:26][plugin_manager.py:88] - Scaning plugins ...
+[INFO][2023-11-20 21:15:26][plugin_manager.py:41] - Plugin Role_v1.0 registered, path=./plugins/role
+[INFO][2023-11-20 21:15:26][plugin_manager.py:41] - Plugin linkai_v0.1.0 registered, path=./plugins/linkai
+[INFO][2023-11-20 21:15:26][plugin_manager.py:41] - Plugin Dungeon_v1.0 registered, path=./plugins/dungeon
+[INFO][2023-11-20 21:15:26][plugin_manager.py:41] - Plugin BDunit_v0.1 registered, path=./plugins/bdunit
+[INFO][2023-11-20 21:15:26][plugin_manager.py:41] - Plugin Finish_v1.0 registered, path=./plugins/finish
+[INFO][2023-11-20 21:15:26][plugin_manager.py:41] - Plugin Godcmd_v1.0 registered, path=./plugins/godcmd
+[INFO][2023-11-20 21:15:26][plugin_manager.py:41] - Plugin Hello_v0.1 registered, path=./plugins/hello
+[INFO][2023-11-20 21:15:26][plugin_manager.py:41] - Plugin Banwords_v1.0 registered, path=./plugins/banwords
+[INFO][2023-11-20 21:15:26][plugin_manager.py:41] - Plugin Keyword_v0.1 registered, path=./plugins/keyword
+[WARNING][2023-11-20 21:15:26][plugin_manager.py:113] - Failed to import plugin tool: No module named 'chatgpt_tool_hub'
+[INFO][2023-11-20 21:15:26][godcmd.py:194] - [Godcmd] 因未设置口令，本次的临时口令为9153。
+[INFO][2023-11-20 21:15:26][godcmd.py:210] - [Godcmd] inited
+[INFO][2023-11-20 21:15:26][keyword.py:40] - [keyword] {}
+[INFO][2023-11-20 21:15:26][keyword.py:42] - [keyword] inited.
+[INFO][2023-11-20 21:15:26][linkai.py:33] - [LinkAI] inited, config={'group_app_map': {'测试群名1': 'default', '测试群名2': 'Kv2fXJcH'}, 'midjourney': {'enabled': False, 'auto_translate': True, 'img_proxy': True, 'max_tasks': 3, 'max_tasks_per_user': 1, 'use_image_create_prefix': True}, 'summary': {'enabled': False, 'group_enabled': True, 'max_file_size': 5000, 'type': ['FILE', 'SHARING', 'IMAGE']}}
+[INFO][2023-11-20 21:15:26][role.py:69] - [Role] inited
+[INFO][2023-11-20 21:15:26][dungeon.py:56] - [Dungeon] inited
+[INFO][2023-11-20 21:15:26][hello.py:24] - [Hello] inited
+[INFO][2023-11-20 21:15:26][finish.py:23] - [Finish] inited
+[INFO][2023-11-20 21:15:45][wechat_channel.py:126] - Wechat login success, user_id: @e6fc1d7bbb34dc6cbb389920e7ca31940e3e1a4a2a43324074cba186285ae8be, nickname: Jogen
+[INFO][2023-11-20 21:15:46][bridge.py:43] - create bot chatGPT for chat
+[INFO][2023-11-20 21:15:46][chat_gpt_bot.py:59] - [CHATGPT] query=你好
+[INFO][2023-11-20 21:15:46][chat_gpt_bot.py:62] - ['你好']
+[INFO][2023-11-20 21:15:48][chat_gpt_bot.py:144] - {'model': 'gpt-3.5-turbo', 'temperature': 0.7, 'top_p': 1, 'frequency_penalty': 0.0, 'presence_penalty': 0.0, 'request_timeout': None, 'timeout': None}
+[INFO][2023-11-20 21:15:48][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]你好！我是由Minami搭建的AI助手，有什么我可以帮助你的吗？), receiver=@817e35002a14057901e214b544204c5dce4f4d6727e0ab13b5ef45a0a49c8b49
+[INFO][2023-11-20 21:15:57][app.py:17] - signal 2 received, exiting...
+[INFO][2023-11-20 21:15:57][config.py:186] - [Config] User datas saved.
