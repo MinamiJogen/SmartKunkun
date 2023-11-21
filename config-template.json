@@ -32,7 +32,7 @@
   "temperature": 0.7,
   "top_p": 1,
   "subscribe_msg": "感谢您的关注！\n这里是GPT for UMers，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。",
-  "use_linkai": false,
-  "linkai_api_key": "",
-  "linkai_app_code": ""
+  "use_linkai": true,
+  "linkai_api_key": "Link_cl0o1dDSmyhLeeOtzdULrDjszNcWwQ3whOTRuPn4TT",
+  "linkai_app_code": "QfehfrYn"
 }
