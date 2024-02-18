@@ -788,3 +788,121 @@ requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.link-ai.chat', po
 [INFO][2023-11-22 16:53:52][link_ai_bot.py:96] - [LINKAI] reply=I apologize for the confusion. I misspoke in my previous response. The Cheng Yu Tung College (CKLC) office is actually located in the CKLC building at the University of Macau. Thank you for bringing this to my attention., total_tokens=207
 [INFO][2023-11-22 16:53:52][link_ai_bot.py:230] - [LINKAI] knowledge base, search_hit=False, first_similarity=None
 [INFO][2023-11-22 16:53:52][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]I apologize for the confusion. I misspoke in my previous response. The Cheng Yu Tung College (CKLC) office is actually located in the CKLC building at the University of Macau. Thank you for bringing this to my attention.), receiver=@38a864a07d2411d314f332ce74b3ce3bde1dfeb59ebca37e50de2934b95fecc8
+[INFO][2024-02-17 23:37:23][config.py:198] - 配置文件不存在，将使用config-template.json模板
+[INFO][2024-02-17 23:37:23][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自GPT的回复]', 'group_chat_prefix': ['@ChatGPT for UMers'], 'group_name_white_list': ['yn楼下的你我他'], 'group_chat_in_one_session': ['yn楼下的你我他'], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是GPT for UMers，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_cl0o1dDSmyhLeeOtzdULrDjszNcWwQ3whOTRuPn4TT', 'linkai_app_code': 'QfehfrYn'}
+[INFO][2024-02-17 23:37:23][config.py:175] - [Config] User datas loaded.
+[WARNING][2024-02-17 23:37:23][audio_convert.py:9] - import pysilk failed, wechaty voice message will not be supported.
+[INFO][2024-02-17 23:37:23][plugin_manager.py:50] - Loading plugins config...
+[INFO][2024-02-17 23:37:23][plugin_manager.py:88] - Scaning plugins ...
+[INFO][2024-02-17 23:37:23][plugin_manager.py:41] - Plugin Role_v1.0 registered, path=./plugins/role
+[INFO][2024-02-17 23:37:23][plugin_manager.py:41] - Plugin linkai_v0.1.0 registered, path=./plugins/linkai
+[INFO][2024-02-17 23:37:23][plugin_manager.py:41] - Plugin Dungeon_v1.0 registered, path=./plugins/dungeon
+[INFO][2024-02-17 23:37:23][plugin_manager.py:41] - Plugin BDunit_v0.1 registered, path=./plugins/bdunit
+[INFO][2024-02-17 23:37:23][plugin_manager.py:41] - Plugin Finish_v1.0 registered, path=./plugins/finish
+[INFO][2024-02-17 23:37:23][plugin_manager.py:41] - Plugin Godcmd_v1.0 registered, path=./plugins/godcmd
+[INFO][2024-02-17 23:37:23][plugin_manager.py:41] - Plugin Hello_v0.1 registered, path=./plugins/hello
+[INFO][2024-02-17 23:37:23][plugin_manager.py:41] - Plugin Banwords_v1.0 registered, path=./plugins/banwords
+[INFO][2024-02-17 23:37:23][plugin_manager.py:41] - Plugin Keyword_v0.1 registered, path=./plugins/keyword
+[WARNING][2024-02-17 23:37:23][plugin_manager.py:113] - Failed to import plugin tool: No module named 'chatgpt_tool_hub'
+[INFO][2024-02-17 23:37:23][godcmd.py:194] - [Godcmd] 因未设置口令，本次的临时口令为5408。
+[INFO][2024-02-17 23:37:23][godcmd.py:210] - [Godcmd] inited
+[INFO][2024-02-17 23:37:23][keyword.py:40] - [keyword] {}
+[INFO][2024-02-17 23:37:23][keyword.py:42] - [keyword] inited.
+[INFO][2024-02-17 23:37:23][linkai.py:33] - [LinkAI] inited, config={'group_app_map': {'测试群名1': 'default', '测试群名2': 'Kv2fXJcH'}, 'midjourney': {'enabled': False, 'auto_translate': True, 'img_proxy': True, 'max_tasks': 3, 'max_tasks_per_user': 1, 'use_image_create_prefix': True}, 'summary': {'enabled': False, 'group_enabled': True, 'max_file_size': 20000, 'type': ['FILE', 'SHARING', 'IMAGE']}}
+[INFO][2024-02-17 23:37:23][role.py:69] - [Role] inited
+[INFO][2024-02-17 23:37:23][dungeon.py:56] - [Dungeon] inited
+[INFO][2024-02-17 23:37:23][hello.py:24] - [Hello] inited
+[INFO][2024-02-17 23:37:23][finish.py:23] - [Finish] inited
+[INFO][2024-02-17 23:38:09][wechat_channel.py:126] - Wechat login success, user_id: @f240a860557ce179e33f2a1c89d137987ac3ab5f1bdbaef7a07677974a26e2e9, nickname: Jogen
+[INFO][2024-02-17 23:39:34][app.py:17] - signal 2 received, exiting...
+[INFO][2024-02-17 23:39:34][config.py:186] - [Config] User datas saved.
+[INFO][2024-02-17 23:39:48][config.py:198] - 配置文件不存在，将使用config-template.json模板
+[INFO][2024-02-17 23:39:48][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自GPT的回复]', 'group_chat_prefix': ['@ChatGPT for UMers'], 'group_name_white_list': ['yn楼下的你我他'], 'group_chat_in_one_session': ['yn楼下的你我他'], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是GPT for UMers，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_cl0o1dDSmyhLeeOtzdULrDjszNcWwQ3whOTRuPn4TT', 'linkai_app_code': 'QfehfrYn'}
+[INFO][2024-02-17 23:39:48][config.py:175] - [Config] User datas loaded.
+[WARNING][2024-02-17 23:39:48][audio_convert.py:9] - import pysilk failed, wechaty voice message will not be supported.
+[INFO][2024-02-17 23:39:48][plugin_manager.py:50] - Loading plugins config...
+[INFO][2024-02-17 23:39:48][plugin_manager.py:88] - Scaning plugins ...
+[INFO][2024-02-17 23:39:48][plugin_manager.py:41] - Plugin Role_v1.0 registered, path=./plugins/role
+[INFO][2024-02-17 23:39:48][plugin_manager.py:41] - Plugin linkai_v0.1.0 registered, path=./plugins/linkai
+[INFO][2024-02-17 23:39:48][plugin_manager.py:41] - Plugin Dungeon_v1.0 registered, path=./plugins/dungeon
+[INFO][2024-02-17 23:39:48][plugin_manager.py:41] - Plugin BDunit_v0.1 registered, path=./plugins/bdunit
+[INFO][2024-02-17 23:39:48][plugin_manager.py:41] - Plugin Finish_v1.0 registered, path=./plugins/finish
+[INFO][2024-02-17 23:39:48][plugin_manager.py:41] - Plugin Godcmd_v1.0 registered, path=./plugins/godcmd
+[INFO][2024-02-17 23:39:48][plugin_manager.py:41] - Plugin Hello_v0.1 registered, path=./plugins/hello
+[INFO][2024-02-17 23:39:48][plugin_manager.py:41] - Plugin Banwords_v1.0 registered, path=./plugins/banwords
+[INFO][2024-02-17 23:39:48][plugin_manager.py:41] - Plugin Keyword_v0.1 registered, path=./plugins/keyword
+[WARNING][2024-02-17 23:39:48][plugin_manager.py:113] - Failed to import plugin tool: No module named 'chatgpt_tool_hub'
+[INFO][2024-02-17 23:39:48][godcmd.py:194] - [Godcmd] 因未设置口令，本次的临时口令为6073。
+[INFO][2024-02-17 23:39:48][godcmd.py:210] - [Godcmd] inited
+[INFO][2024-02-17 23:39:48][keyword.py:40] - [keyword] {}
+[INFO][2024-02-17 23:39:48][keyword.py:42] - [keyword] inited.
+[INFO][2024-02-17 23:39:48][linkai.py:33] - [LinkAI] inited, config={'group_app_map': {'测试群名1': 'default', '测试群名2': 'Kv2fXJcH'}, 'midjourney': {'enabled': False, 'auto_translate': True, 'img_proxy': True, 'max_tasks': 3, 'max_tasks_per_user': 1, 'use_image_create_prefix': True}, 'summary': {'enabled': False, 'group_enabled': True, 'max_file_size': 20000, 'type': ['FILE', 'SHARING', 'IMAGE']}}
+[INFO][2024-02-17 23:39:48][role.py:69] - [Role] inited
+[INFO][2024-02-17 23:39:48][dungeon.py:56] - [Dungeon] inited
+[INFO][2024-02-17 23:39:48][hello.py:24] - [Hello] inited
+[INFO][2024-02-17 23:39:48][finish.py:23] - [Finish] inited
+[INFO][2024-02-17 23:40:26][wechat_channel.py:126] - Wechat login success, user_id: @4fc07c0f0b4ec1cdacd491105704947e4cac2d893fdb55c100e7f66c9b78210b, nickname: Jogen
+[INFO][2024-02-17 23:40:29][bridge.py:43] - create bot linkai for chat
+[INFO][2024-02-17 23:40:33][link_ai_bot.py:84] - [LINKAI] query=你好, app_code=QfehfrYn, mode=gpt-3.5-turbo, file_id=None
+[INFO][2024-02-17 23:40:35][link_ai_bot.py:96] - [LINKAI] reply=你好，请问有什么可以帮助您的吗？, total_tokens=292
+[INFO][2024-02-17 23:40:35][link_ai_bot.py:230] - [LINKAI] knowledge base, search_hit=True, first_similarity=0.7856
+[INFO][2024-02-17 23:40:36][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]你好，请问有什么可以帮助您的吗？), receiver=@4b854b62fccdf1f4d58cf6bacbe404af55f3afcacc9b09fb627a1255100554ba
+[INFO][2024-02-17 23:40:39][app.py:17] - signal 2 received, exiting...
+[INFO][2024-02-17 23:40:39][config.py:186] - [Config] User datas saved.
+[INFO][2024-02-17 23:43:06][config.py:198] - 配置文件不存在，将使用config-template.json模板
+[INFO][2024-02-17 23:43:06][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自GPT的回复]', 'group_chat_prefix': ['@ChatGPT for UMers'], 'group_name_white_list': ['yn楼下的你我他'], 'group_chat_in_one_session': ['yn楼下的你我他'], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是GPT for UMers，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_cl0o1dDSmyhLeeOtzdULrDjszNcWwQ3whOTRuPn4TT', 'linkai_app_code': 'QfehfrYn'}
+[INFO][2024-02-17 23:43:06][config.py:175] - [Config] User datas loaded.
+[WARNING][2024-02-17 23:43:06][audio_convert.py:9] - import pysilk failed, wechaty voice message will not be supported.
+[INFO][2024-02-17 23:43:06][plugin_manager.py:50] - Loading plugins config...
+[INFO][2024-02-17 23:43:06][plugin_manager.py:88] - Scaning plugins ...
+[INFO][2024-02-17 23:43:06][plugin_manager.py:41] - Plugin Role_v1.0 registered, path=./plugins/role
+[INFO][2024-02-17 23:43:06][plugin_manager.py:41] - Plugin linkai_v0.1.0 registered, path=./plugins/linkai
+[INFO][2024-02-17 23:43:06][plugin_manager.py:41] - Plugin Dungeon_v1.0 registered, path=./plugins/dungeon
+[INFO][2024-02-17 23:43:06][plugin_manager.py:41] - Plugin BDunit_v0.1 registered, path=./plugins/bdunit
+[INFO][2024-02-17 23:43:06][plugin_manager.py:41] - Plugin Finish_v1.0 registered, path=./plugins/finish
+[INFO][2024-02-17 23:43:06][plugin_manager.py:41] - Plugin Godcmd_v1.0 registered, path=./plugins/godcmd
+[INFO][2024-02-17 23:43:06][plugin_manager.py:41] - Plugin Hello_v0.1 registered, path=./plugins/hello
+[INFO][2024-02-17 23:43:06][plugin_manager.py:41] - Plugin Banwords_v1.0 registered, path=./plugins/banwords
+[INFO][2024-02-17 23:43:06][plugin_manager.py:41] - Plugin Keyword_v0.1 registered, path=./plugins/keyword
+[WARNING][2024-02-17 23:43:06][plugin_manager.py:113] - Failed to import plugin tool: No module named 'chatgpt_tool_hub'
+[INFO][2024-02-17 23:43:06][godcmd.py:194] - [Godcmd] 因未设置口令，本次的临时口令为7043。
+[INFO][2024-02-17 23:43:06][godcmd.py:210] - [Godcmd] inited
+[INFO][2024-02-17 23:43:06][keyword.py:40] - [keyword] {}
+[INFO][2024-02-17 23:43:06][keyword.py:42] - [keyword] inited.
+[INFO][2024-02-17 23:43:06][linkai.py:33] - [LinkAI] inited, config={'group_app_map': {'测试群名1': 'default', '测试群名2': 'Kv2fXJcH'}, 'midjourney': {'enabled': True, 'auto_translate': True, 'img_proxy': True, 'max_tasks': 3, 'max_tasks_per_user': 1, 'use_image_create_prefix': True}, 'summary': {'enabled': True, 'group_enabled': True, 'max_file_size': 20000, 'type': ['FILE', 'SHARING', 'IMAGE']}}
+[INFO][2024-02-17 23:43:06][role.py:69] - [Role] inited
+[INFO][2024-02-17 23:43:06][dungeon.py:56] - [Dungeon] inited
+[INFO][2024-02-17 23:43:06][hello.py:24] - [Hello] inited
+[INFO][2024-02-17 23:43:06][finish.py:23] - [Finish] inited
+[INFO][2024-02-17 23:43:25][wechat_channel.py:126] - Wechat login success, user_id: @01138f69a47eff69138d1ef299d6770a7e354d78c865c4db82154ab67e6c7eb2, nickname: Jogen
+[INFO][2024-02-17 23:43:27][bridge.py:43] - create bot linkai for chat
+[INFO][2024-02-17 23:43:27][link_ai_bot.py:84] - [LINKAI] query=你好, app_code=QfehfrYn, mode=gpt-3.5-turbo, file_id=None
+[INFO][2024-02-17 23:43:29][link_ai_bot.py:96] - [LINKAI] reply=你好，请问有什么可以帮助您的吗？, total_tokens=292
+[INFO][2024-02-17 23:43:29][link_ai_bot.py:230] - [LINKAI] knowledge base, search_hit=True, first_similarity=0.7856
+[INFO][2024-02-17 23:43:30][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]你好，请问有什么可以帮助您的吗？), receiver=@05a6c13ae8c089e856b87613e404cc73f3fd25d148fec1548d16476f724532cb
+[INFO][2024-02-17 23:43:36][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=正在为你加速生成摘要，请稍后), receiver=@05a6c13ae8c089e856b87613e404cc73f3fd25d148fec1548d16476f724532cb
+[INFO][2024-02-17 23:43:42][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]📖 一句话总结：
+新加坡是一个多元文化的移民国家，以华人、马来人和印度人为主，官方语言包括英语、华语、马来语和泰米尔语，实际的“第一语言”是马来语，推广华语的运动称为“华语文运动”，而中国的顶层语言是普通话，两广地区的高层语言是粤语，台湾的汉族分为闽南人、客家人和外省人三大民系，其中闽南人最多。
+
+🔑 关键要点：
+1. 新加坡是一个多元文化的移民国家，以华人、马来人和印度人为主。
+2. 新加坡的官方语言包括英语、华语、马来语和泰米尔语。
+3. 新加坡的实际的“第一语言”是马来语，推广华语的运动称为“华语文运动”。
+4. 中国的顶层语言是普通话，两广地区的高层语言是粤语。
+5. 台湾的汉族分为闽南人、客家人和外省人三大民系，其中闽南人最多。
+
+🏷 标签：#多元文化 #移民国家 #官方语言 #华语 #马来语 #普通话 #粤语 #闽南人
+
+💬 发送 "开启对话" 可以开启与文件内容的对话), receiver=@05a6c13ae8c089e856b87613e404cc73f3fd25d148fec1548d16476f724532cb
+[INFO][2024-02-17 23:43:53][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=正在为你开启对话，请稍后), receiver=@05a6c13ae8c089e856b87613e404cc73f3fd25d148fec1548d16476f724532cb
+[INFO][2024-02-17 23:43:55][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]💡你可以问我关于这篇文章的任何问题，例如：
+
+1. 新加坡是一个以哪些民族为主的多元文化移民国家？
+2. 新加坡的官方语言有哪些？实际的“第一语言”是什么？
+3. 中国的顶层语言是什么？两广地区的高层语言是什么？
+4. 台湾的汉族分为哪些民系？其中人口最多的是哪个民系？
+
+发送 "退出对话" 可以关闭与文章的对话), receiver=@05a6c13ae8c089e856b87613e404cc73f3fd25d148fec1548d16476f724532cb
+[INFO][2024-02-17 23:44:02][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]对话已退出), receiver=@05a6c13ae8c089e856b87613e404cc73f3fd25d148fec1548d16476f724532cb
+[INFO][2024-02-17 23:44:09][app.py:17] - signal 2 received, exiting...
+[INFO][2024-02-17 23:44:09][config.py:186] - [Config] User datas saved.

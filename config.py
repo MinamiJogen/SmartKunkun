@@ -127,7 +127,7 @@ available_setting = {
     # 是否使用全局插件配置
     "use_global_plugin_config": False,
     # 知识库平台配置
-    "use_linkai": False,
+    "use_linkai": True,
     "linkai_api_key": "",
     "linkai_app_code": "",
     "linkai_api_base": "https://api.link-ai.chat",  # linkAI服务地址，若国内无法访问或延迟较高可改为 https://api.link-ai.tech
