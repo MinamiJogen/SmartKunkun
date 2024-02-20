@@ -1,0 +1,38 @@
+{
+  "channel_type": "wx",
+  "model": "gpt-3.5-turbo",
+  "open_ai_api_key": "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",
+  "text_to_image": "dall-e-3",
+  "voice_to_text": "openai",
+  "text_to_voice": "openai",
+  "proxy": "",
+  "hot_reload": false,
+  "single_chat_prefix": [
+    ""
+  ],
+  "single_chat_reply_prefix": "[来自GPT的回复]",
+  "group_chat_prefix": [
+    "@ChatGPT for UMers"
+  ],
+  "group_name_white_list": [
+    "yn楼下的你我他"
+  ],
+  "group_chat_in_one_session": [
+    "yn楼下的你我他"
+  ],
+  "image_create_prefix": [
+    "画","Draw","draw"
+  ],
+  "speech_recognition": true,
+  "group_speech_recognition": false,
+  "voice_reply_voice": false,
+  "conversation_max_tokens": 2500,
+  "expires_in_seconds": 3600,
+  "character_desc": "你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。",
+  "temperature": 0.7,
+  "top_p": 1,
+  "subscribe_msg": "感谢您的关注！\n这里是GPT for UMers，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。",
+  "use_linkai": true,
+  "linkai_api_key": "Link_cl0o1dDSmyhLeeOtzdULrDjszNcWwQ3whOTRuPn4TT",
+  "linkai_app_code": "QfehfrYn"
+}
