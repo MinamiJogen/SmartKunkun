@@ -906,3 +906,79 @@ requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.link-ai.chat', po
 [INFO][2024-02-17 23:44:02][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]对话已退出), receiver=@05a6c13ae8c089e856b87613e404cc73f3fd25d148fec1548d16476f724532cb
 [INFO][2024-02-17 23:44:09][app.py:17] - signal 2 received, exiting...
 [INFO][2024-02-17 23:44:09][config.py:186] - [Config] User datas saved.
+[INFO][2024-02-21 00:17:19][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自GPT的回复]', 'group_chat_prefix': ['@ChatGPT for UMers'], 'group_name_white_list': ['yn楼下的你我他'], 'group_chat_in_one_session': ['yn楼下的你我他'], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是GPT for UMers，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_cl0o1dDSmyhLeeOtzdULrDjszNcWwQ3whOTRuPn4TT', 'linkai_app_code': 'QfehfrYn'}
+[INFO][2024-02-21 00:17:19][config.py:175] - [Config] User datas loaded.
+[WARNING][2024-02-21 00:17:19][audio_convert.py:9] - import pysilk failed, wechaty voice message will not be supported.
+[INFO][2024-02-21 00:17:19][plugin_manager.py:50] - Loading plugins config...
+[INFO][2024-02-21 00:17:19][plugin_manager.py:88] - Scaning plugins ...
+[INFO][2024-02-21 00:17:19][plugin_manager.py:41] - Plugin Role_v1.0 registered, path=./plugins/role
+[INFO][2024-02-21 00:17:19][plugin_manager.py:41] - Plugin linkai_v0.1.0 registered, path=./plugins/linkai
+[INFO][2024-02-21 00:17:19][plugin_manager.py:41] - Plugin Dungeon_v1.0 registered, path=./plugins/dungeon
+[INFO][2024-02-21 00:17:19][plugin_manager.py:41] - Plugin BDunit_v0.1 registered, path=./plugins/bdunit
+[INFO][2024-02-21 00:17:19][plugin_manager.py:41] - Plugin Finish_v1.0 registered, path=./plugins/finish
+[INFO][2024-02-21 00:17:19][plugin_manager.py:41] - Plugin Godcmd_v1.0 registered, path=./plugins/godcmd
+[INFO][2024-02-21 00:17:19][plugin_manager.py:41] - Plugin Hello_v0.1 registered, path=./plugins/hello
+[INFO][2024-02-21 00:17:19][plugin_manager.py:41] - Plugin Banwords_v1.0 registered, path=./plugins/banwords
+[INFO][2024-02-21 00:17:19][plugin_manager.py:41] - Plugin Keyword_v0.1 registered, path=./plugins/keyword
+[WARNING][2024-02-21 00:17:19][plugin_manager.py:113] - Failed to import plugin tool: No module named 'chatgpt_tool_hub'
+[INFO][2024-02-21 00:17:19][godcmd.py:194] - [Godcmd] 因未设置口令，本次的临时口令为6208。
+[INFO][2024-02-21 00:17:19][godcmd.py:210] - [Godcmd] inited
+[INFO][2024-02-21 00:17:19][keyword.py:40] - [keyword] {}
+[INFO][2024-02-21 00:17:19][keyword.py:42] - [keyword] inited.
+[INFO][2024-02-21 00:17:19][linkai.py:33] - [LinkAI] inited, config={'group_app_map': {'测试群名1': 'default', '测试群名2': 'Kv2fXJcH'}, 'midjourney': {'enabled': True, 'auto_translate': True, 'img_proxy': True, 'max_tasks': 3, 'max_tasks_per_user': 1, 'use_image_create_prefix': True}, 'summary': {'enabled': True, 'group_enabled': True, 'max_file_size': 20000, 'type': ['FILE', 'SHARING', 'IMAGE']}}
+[INFO][2024-02-21 00:17:19][role.py:69] - [Role] inited
+[INFO][2024-02-21 00:17:19][dungeon.py:56] - [Dungeon] inited
+[INFO][2024-02-21 00:17:19][hello.py:24] - [Hello] inited
+[INFO][2024-02-21 00:17:19][finish.py:23] - [Finish] inited
+[INFO][2024-02-21 00:17:32][app.py:17] - signal 2 received, exiting...
+[INFO][2024-02-21 00:17:32][config.py:186] - [Config] User datas saved.
+[INFO][2024-02-21 00:17:55][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自GPT的回复]', 'group_chat_prefix': ['@ChatGPT for UMers'], 'group_name_white_list': ['yn楼下的你我他'], 'group_chat_in_one_session': ['yn楼下的你我他'], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是GPT for UMers，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_cl0o1dDSmyhLeeOtzdULrDjszNcWwQ3whOTRuPn4TT', 'linkai_app_code': 'QfehfrYn'}
+[INFO][2024-02-21 00:17:55][config.py:175] - [Config] User datas loaded.
+[WARNING][2024-02-21 00:17:55][audio_convert.py:9] - import pysilk failed, wechaty voice message will not be supported.
+[INFO][2024-02-21 00:17:55][plugin_manager.py:50] - Loading plugins config...
+[INFO][2024-02-21 00:17:55][plugin_manager.py:88] - Scaning plugins ...
+[INFO][2024-02-21 00:17:55][plugin_manager.py:41] - Plugin Role_v1.0 registered, path=./plugins/role
+[INFO][2024-02-21 00:17:55][plugin_manager.py:41] - Plugin linkai_v0.1.0 registered, path=./plugins/linkai
+[INFO][2024-02-21 00:17:55][plugin_manager.py:41] - Plugin Dungeon_v1.0 registered, path=./plugins/dungeon
+[INFO][2024-02-21 00:17:55][plugin_manager.py:41] - Plugin BDunit_v0.1 registered, path=./plugins/bdunit
+[INFO][2024-02-21 00:17:55][plugin_manager.py:41] - Plugin Finish_v1.0 registered, path=./plugins/finish
+[INFO][2024-02-21 00:17:55][plugin_manager.py:41] - Plugin Godcmd_v1.0 registered, path=./plugins/godcmd
+[INFO][2024-02-21 00:17:55][plugin_manager.py:41] - Plugin Hello_v0.1 registered, path=./plugins/hello
+[INFO][2024-02-21 00:17:55][plugin_manager.py:41] - Plugin Banwords_v1.0 registered, path=./plugins/banwords
+[INFO][2024-02-21 00:17:55][plugin_manager.py:41] - Plugin Keyword_v0.1 registered, path=./plugins/keyword
+[WARNING][2024-02-21 00:17:55][plugin_manager.py:113] - Failed to import plugin tool: No module named 'chatgpt_tool_hub'
+[INFO][2024-02-21 00:17:55][godcmd.py:194] - [Godcmd] 因未设置口令，本次的临时口令为4081。
+[INFO][2024-02-21 00:17:55][godcmd.py:210] - [Godcmd] inited
+[INFO][2024-02-21 00:17:55][keyword.py:40] - [keyword] {}
+[INFO][2024-02-21 00:17:55][keyword.py:42] - [keyword] inited.
+[INFO][2024-02-21 00:17:55][linkai.py:33] - [LinkAI] inited, config={'group_app_map': {'测试群名1': 'default', '测试群名2': 'Kv2fXJcH'}, 'midjourney': {'enabled': True, 'auto_translate': True, 'img_proxy': True, 'max_tasks': 3, 'max_tasks_per_user': 1, 'use_image_create_prefix': True}, 'summary': {'enabled': True, 'group_enabled': True, 'max_file_size': 20000, 'type': ['FILE', 'SHARING', 'IMAGE']}}
+[INFO][2024-02-21 00:17:55][role.py:69] - [Role] inited
+[INFO][2024-02-21 00:17:55][dungeon.py:56] - [Dungeon] inited
+[INFO][2024-02-21 00:17:55][hello.py:24] - [Hello] inited
+[INFO][2024-02-21 00:17:55][finish.py:23] - [Finish] inited
+[INFO][2024-02-21 00:18:32][wechat_channel.py:126] - Wechat login success, user_id: @8c6fc7da761ef91296557df30a9cd20ccfe393c559c0ea0ed7d14363c69dca55, nickname: Jogen
+[INFO][2024-02-21 00:19:02][bridge.py:43] - create bot linkai for chat
+[INFO][2024-02-21 00:19:06][link_ai_bot.py:84] - [LINKAI] query=你好, app_code=QfehfrYn, mode=gpt-3.5-turbo, file_id=None
+[INFO][2024-02-21 00:19:09][link_ai_bot.py:96] - [LINKAI] reply=你好！有什么可以帮助你的吗？, total_tokens=355
+[INFO][2024-02-21 00:19:09][link_ai_bot.py:230] - [LINKAI] knowledge base, search_hit=True, first_similarity=0.7854
+[INFO][2024-02-21 00:19:10][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]你好！有什么可以帮助你的吗？), receiver=@490532f3911bef20300559b0f0b710fbcf373225cf2dfd7942e59a4448123028
+[INFO][2024-02-21 00:19:20][link_ai_bot.py:84] - [LINKAI] query=我想更换房间, app_code=QfehfrYn, mode=gpt-3.5-turbo, file_id=None
+[INFO][2024-02-21 00:19:25][link_ai_bot.py:96] - [LINKAI] reply=如果您对当前的房间分配不满意，您可以申请更换房间。通常每学年只能申请一次房间更换，需要遵循书院的具体申请流程和规定。您需要先与书院助理（RA）或书院助教（RT）讨论商议，如果问题无法解决，可以填写房间更换申请表并提交给书院办公室。请记得房间更换申请需要得到双方室友的同意，在提交申请前，您需要与室友协商并达成一致。希望这些信息对您有帮助。, total_tokens=610
+[INFO][2024-02-21 00:19:25][link_ai_bot.py:230] - [LINKAI] knowledge base, search_hit=True, first_similarity=0.8823
+[INFO][2024-02-21 00:19:25][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]如果您对当前的房间分配不满意，您可以申请更换房间。通常每学年只能申请一次房间更换，需要遵循书院的具体申请流程和规定。您需要先与书院助理（RA）或书院助教（RT）讨论商议，如果问题无法解决，可以填写房间更换申请表并提交给书院办公室。请记得房间更换申请需要得到双方室友的同意，在提交申请前，您需要与室友协商并达成一致。希望这些信息对您有帮助。), receiver=@490532f3911bef20300559b0f0b710fbcf373225cf2dfd7942e59a4448123028
+[INFO][2024-02-21 00:19:52][link_ai_bot.py:84] - [LINKAI] query=我的室友抽烟怎么办, app_code=QfehfrYn, mode=gpt-3.5-turbo, file_id=None
+[INFO][2024-02-21 00:19:56][link_ai_bot.py:96] - [LINKAI] reply=书院内全面禁烟，违反者将受到纪律处分。如果您的室友在房间内吸烟，您可以先尝试与室友沟通，提醒他们书院内禁止吸烟的规定，并请求他们尊重这一规定。如果沟通无效，您可以向书院管理人员举报此情况，管理人员将会介入处理。希望这些信息对您有所帮助。, total_tokens=717
+[INFO][2024-02-21 00:19:56][link_ai_bot.py:230] - [LINKAI] knowledge base, search_hit=True, first_similarity=0.8291
+[INFO][2024-02-21 00:19:56][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]书院内全面禁烟，违反者将受到纪律处分。如果您的室友在房间内吸烟，您可以先尝试与室友沟通，提醒他们书院内禁止吸烟的规定，并请求他们尊重这一规定。如果沟通无效，您可以向书院管理人员举报此情况，管理人员将会介入处理。希望这些信息对您有所帮助。), receiver=@490532f3911bef20300559b0f0b710fbcf373225cf2dfd7942e59a4448123028
+[INFO][2024-02-21 00:20:18][link_ai_bot.py:84] - [LINKAI] query=如何向书院管理人员举报？, app_code=QfehfrYn, mode=gpt-3.5-turbo, file_id=None
+[INFO][2024-02-21 00:20:22][link_ai_bot.py:96] - [LINKAI] reply=您可以向书院管理人员举报的方法包括：
+1. 直接与书院办公室或指定的管理人员进行沟通，向他们报告您的问题和投诉内容。
+2. 如果问题无法解决，可以按照书院的正式投诉程序，填写投诉表格并提交给书院办公室，详细说明您的投诉内容和期望的解决方案。
+希望这些信息对您有帮助。, total_tokens=964
+[INFO][2024-02-21 00:20:22][link_ai_bot.py:230] - [LINKAI] knowledge base, search_hit=True, first_similarity=0.8995
+[INFO][2024-02-21 00:20:23][wechat_channel.py:201] - [WX] sendMsg=Reply(type=TEXT, content=[来自GPT的回复]您可以向书院管理人员举报的方法包括：
+1. 直接与书院办公室或指定的管理人员进行沟通，向他们报告您的问题和投诉内容。
+2. 如果问题无法解决，可以按照书院的正式投诉程序，填写投诉表格并提交给书院办公室，详细说明您的投诉内容和期望的解决方案。
+希望这些信息对您有帮助。), receiver=@490532f3911bef20300559b0f0b710fbcf373225cf2dfd7942e59a4448123028
+[INFO][2024-02-21 00:20:46][app.py:17] - signal 2 received, exiting...
+[INFO][2024-02-21 00:20:46][config.py:186] - [Config] User datas saved.
