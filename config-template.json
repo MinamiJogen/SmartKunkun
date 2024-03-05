@@ -10,7 +10,7 @@
   "single_chat_prefix": [
     ""
   ],
-  "single_chat_reply_prefix": "[来自GPT的回复]",
+  "single_chat_reply_prefix": "[来自智能崑崑Beta的回复]",
   "group_chat_prefix": [
     "@ChatGPT for UMers"
   ],

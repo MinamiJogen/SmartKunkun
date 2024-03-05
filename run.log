@@ -982,3 +982,40 @@ requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.link-ai.chat', po
 希望这些信息对您有帮助。), receiver=@490532f3911bef20300559b0f0b710fbcf373225cf2dfd7942e59a4448123028
 [INFO][2024-02-21 00:20:46][app.py:17] - signal 2 received, exiting...
 [INFO][2024-02-21 00:20:46][config.py:186] - [Config] User datas saved.
+[INFO][2024-03-06 05:13:52][config.py:198] - 配置文件不存在，将使用config-template.json模板
+[INFO][2024-03-06 05:13:52][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自智能崑崑Beta的回复]', 'group_chat_prefix': ['@ChatGPT for UMers'], 'group_name_white_list': ['yn楼下的你我他'], 'group_chat_in_one_session': ['yn楼下的你我他'], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是GPT for UMers，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_cl0o1dDSmyhLeeOtzdULrDjszNcWwQ3whOTRuPn4TT', 'linkai_app_code': 'QfehfrYn'}
+[INFO][2024-03-06 05:13:52][config.py:175] - [Config] User datas loaded.
+[WARNING][2024-03-06 05:13:52][audio_convert.py:9] - import pysilk failed, wechaty voice message will not be supported.
+[INFO][2024-03-06 05:13:52][plugin_manager.py:50] - Loading plugins config...
+[INFO][2024-03-06 05:13:52][plugin_manager.py:88] - Scaning plugins ...
+[INFO][2024-03-06 05:13:52][plugin_manager.py:41] - Plugin Role_v1.0 registered, path=./plugins/role
+[INFO][2024-03-06 05:13:52][plugin_manager.py:41] - Plugin linkai_v0.1.0 registered, path=./plugins/linkai
+[INFO][2024-03-06 05:13:52][plugin_manager.py:41] - Plugin Dungeon_v1.0 registered, path=./plugins/dungeon
+[INFO][2024-03-06 05:13:52][plugin_manager.py:41] - Plugin BDunit_v0.1 registered, path=./plugins/bdunit
+[INFO][2024-03-06 05:13:52][plugin_manager.py:41] - Plugin Finish_v1.0 registered, path=./plugins/finish
+[INFO][2024-03-06 05:13:52][plugin_manager.py:41] - Plugin Godcmd_v1.0 registered, path=./plugins/godcmd
+[INFO][2024-03-06 05:13:52][plugin_manager.py:41] - Plugin Hello_v0.1 registered, path=./plugins/hello
+[INFO][2024-03-06 05:13:52][plugin_manager.py:41] - Plugin Banwords_v1.0 registered, path=./plugins/banwords
+[INFO][2024-03-06 05:13:52][plugin_manager.py:41] - Plugin Keyword_v0.1 registered, path=./plugins/keyword
+[WARNING][2024-03-06 05:13:52][plugin_manager.py:113] - Failed to import plugin tool: No module named 'chatgpt_tool_hub'
+[INFO][2024-03-06 05:13:52][godcmd.py:194] - [Godcmd] 因未设置口令，本次的临时口令为9234。
+[INFO][2024-03-06 05:13:52][godcmd.py:210] - [Godcmd] inited
+[INFO][2024-03-06 05:13:52][keyword.py:40] - [keyword] {}
+[INFO][2024-03-06 05:13:52][keyword.py:42] - [keyword] inited.
+[INFO][2024-03-06 05:13:52][linkai.py:33] - [LinkAI] inited, config={'group_app_map': {'测试群名1': 'default', '测试群名2': 'Kv2fXJcH'}, 'midjourney': {'enabled': True, 'auto_translate': True, 'img_proxy': True, 'max_tasks': 3, 'max_tasks_per_user': 1, 'use_image_create_prefix': True}, 'summary': {'enabled': True, 'group_enabled': True, 'max_file_size': 20000, 'type': ['FILE', 'SHARING', 'IMAGE']}}
+[INFO][2024-03-06 05:13:52][role.py:69] - [Role] inited
+[INFO][2024-03-06 05:13:52][dungeon.py:56] - [Dungeon] inited
+[INFO][2024-03-06 05:13:52][hello.py:24] - [Hello] inited
+[INFO][2024-03-06 05:13:52][finish.py:23] - [Finish] inited
+[INFO][2024-03-06 05:14:27][wechat_channel.py:126] - Wechat login success, user_id: @c4d37cb6b966b4e1179fce443174daf74afc9e112caac1c78ba5d86164a9b49f, nickname: 智慧崑崑-Beta
+[INFO][2024-03-06 05:14:38][bridge.py:43] - create bot linkai for chat
+[INFO][2024-03-06 05:14:44][link_ai_bot.py:84] - [LINKAI] query=你好, app_code=QfehfrYn, mode=gpt-3.5-turbo, file_id=None
+[INFO][2024-03-06 05:14:46][link_ai_bot.py:96] - [LINKAI] reply=你好，请问有什么可以帮助您的吗？, total_tokens=356
+[INFO][2024-03-06 05:14:46][link_ai_bot.py:230] - [LINKAI] knowledge base, search_hit=True, first_similarity=0.7853
+[INFO][2024-03-06 05:14:47][wechat_channel.py:202] - [WX] sendMsg=Reply(type=TEXT, content=[来自智能崑崑Beta的回复]你好，请问有什么可以帮助您的吗？), receiver=@296a2f532c10533f299e97e2516f157e4d171c0037e557a2a0e5e2a0f579ba7c
+[INFO][2024-03-06 05:15:00][link_ai_bot.py:84] - [LINKAI] query=我该怎么办理退宿, app_code=QfehfrYn, mode=gpt-3.5-turbo, file_id=None
+[INFO][2024-03-06 05:15:05][link_ai_bot.py:96] - [LINKAI] reply=您好，办理退宿时，您需要提前至少3个工作日向书院办公室预约退宿时间。在退宿时，您还需要清理个人物品并恢复房间原状，等待书院工作人员检查房间状况，提交退宿表格和设备清单，最后归还房卡和其他书院财产。如果您无法在指定时间内离开，需要向书院提供有效证明并寻求特别批准。未经批准擅自延迟退宿可能会导致额外费用或其他后果。希望能帮到您。, total_tokens=634
+[INFO][2024-03-06 05:15:05][link_ai_bot.py:230] - [LINKAI] knowledge base, search_hit=True, first_similarity=0.8899
+[INFO][2024-03-06 05:15:05][wechat_channel.py:202] - [WX] sendMsg=Reply(type=TEXT, content=[来自智能崑崑Beta的回复]您好，办理退宿时，您需要提前至少3个工作日向书院办公室预约退宿时间。在退宿时，您还需要清理个人物品并恢复房间原状，等待书院工作人员检查房间状况，提交退宿表格和设备清单，最后归还房卡和其他书院财产。如果您无法在指定时间内离开，需要向书院提供有效证明并寻求特别批准。未经批准擅自延迟退宿可能会导致额外费用或其他后果。希望能帮到您。), receiver=@296a2f532c10533f299e97e2516f157e4d171c0037e557a2a0e5e2a0f579ba7c
+[INFO][2024-03-06 05:15:37][app.py:17] - signal 2 received, exiting...
+[INFO][2024-03-06 05:15:37][config.py:186] - [Config] User datas saved.
