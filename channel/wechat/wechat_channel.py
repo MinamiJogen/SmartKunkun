@@ -161,7 +161,10 @@ class WechatChannel(ChatChannel):
         forbidWord = ""
         # 分割消息，检查首词
         split_strings = cmsg.content.split(" ", 1)
-        context = self._compose_context(cmsg.ctype, forbidWord+cmsg.content, isgroup=False, msg=cmsg)
+        if len(split_strings)>1:
+            context = self._compose_context(cmsg.ctype, forbidWord+split_strings[1], isgroup=False, msg=cmsg)
+        else:
+            context = self._compose_context(cmsg.ctype, forbidWord+cmsg.content, isgroup=False, msg=cmsg)
         # 调用gpt4所需前缀
         prefix=["GPT-4", "gpt-4","GPT4","gpt4"]
         itchat.send("崑崑還在測試階段，若您認為回覆有誤，請反饋：https://forms.gle/fH5kMp2uWqUekevF7", toUserName=cmsg.other_user_id)
