@@ -1019,3 +1019,85 @@ requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.link-ai.chat', po
 [INFO][2024-03-06 05:15:05][wechat_channel.py:202] - [WX] sendMsg=Reply(type=TEXT, content=[来自智能崑崑Beta的回复]您好，办理退宿时，您需要提前至少3个工作日向书院办公室预约退宿时间。在退宿时，您还需要清理个人物品并恢复房间原状，等待书院工作人员检查房间状况，提交退宿表格和设备清单，最后归还房卡和其他书院财产。如果您无法在指定时间内离开，需要向书院提供有效证明并寻求特别批准。未经批准擅自延迟退宿可能会导致额外费用或其他后果。希望能帮到您。), receiver=@296a2f532c10533f299e97e2516f157e4d171c0037e557a2a0e5e2a0f579ba7c
 [INFO][2024-03-06 05:15:37][app.py:17] - signal 2 received, exiting...
 [INFO][2024-03-06 05:15:37][config.py:186] - [Config] User datas saved.
+[INFO][2024-04-18 00:35:49][config.py:198] - 配置文件不存在，将使用config-template.json模板
+[INFO][2024-04-18 00:35:49][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自智慧崑崑的回复]', 'group_chat_prefix': ['@智慧崑崑'], 'group_name_white_list': [''], 'group_chat_in_one_session': [''], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是智慧崑崑，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_9hKIC12bVXDKem2X8h68mjVv68WybbXRm6PHhgZBJE', 'linkai_app_code': 'iy6LQecp'}
+[INFO][2024-04-18 00:35:49][config.py:175] - [Config] User datas loaded.
+[ERROR][2024-04-18 00:35:49][app.py:52] - App startup failed!
+[ERROR][2024-04-18 00:35:49][app.py:53] - No module named 'requests'
+Traceback (most recent call last):
+  File "/Users/minami/Desktop/Folder/chatgpt-on-wechat/app.py", line 45, in run
+    channel = channel_factory.create_channel(channel_name)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minami/Desktop/Folder/chatgpt-on-wechat/channel/channel_factory.py", line 13, in create_channel
+    from channel.wechat.wechat_channel import WechatChannel
+  File "/Users/minami/Desktop/Folder/chatgpt-on-wechat/channel/wechat/wechat_channel.py", line 13, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+[INFO][2024-04-18 00:36:25][config.py:198] - 配置文件不存在，将使用config-template.json模板
+[INFO][2024-04-18 00:36:25][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自智慧崑崑的回复]', 'group_chat_prefix': ['@智慧崑崑'], 'group_name_white_list': [''], 'group_chat_in_one_session': [''], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是智慧崑崑，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_9hKIC12bVXDKem2X8h68mjVv68WybbXRm6PHhgZBJE', 'linkai_app_code': 'iy6LQecp'}
+[INFO][2024-04-18 00:36:25][config.py:175] - [Config] User datas loaded.
+[ERROR][2024-04-18 00:36:25][app.py:52] - App startup failed!
+[ERROR][2024-04-18 00:36:25][app.py:53] - No module named 'requests'
+Traceback (most recent call last):
+  File "/Users/minami/Desktop/Folder/chatgpt-on-wechat/app.py", line 45, in run
+    channel = channel_factory.create_channel(channel_name)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/minami/Desktop/Folder/chatgpt-on-wechat/channel/channel_factory.py", line 13, in create_channel
+    from channel.wechat.wechat_channel import WechatChannel
+  File "/Users/minami/Desktop/Folder/chatgpt-on-wechat/channel/wechat/wechat_channel.py", line 13, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+[INFO][2024-04-18 00:37:24][config.py:198] - 配置文件不存在，将使用config-template.json模板
+[INFO][2024-04-18 00:37:24][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自智慧崑崑的回复]', 'group_chat_prefix': ['@智慧崑崑'], 'group_name_white_list': [''], 'group_chat_in_one_session': [''], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由Minami搭建，通过GPT模型API提供服务的非营利性微信机器人，旨在帮助人们解决任何问题，并且可以使用多种语言和语音进行交流。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是智慧崑崑，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_9hKIC12bVXDKem2X8h68mjVv68WybbXRm6PHhgZBJE', 'linkai_app_code': 'iy6LQecp'}
+[INFO][2024-04-18 00:37:24][config.py:175] - [Config] User datas loaded.
+[WARNING][2024-04-18 00:37:24][audio_convert.py:9] - import pysilk failed, wechaty voice message will not be supported.
+[INFO][2024-04-18 00:37:24][plugin_manager.py:50] - Loading plugins config...
+[INFO][2024-04-18 00:37:24][plugin_manager.py:88] - Scaning plugins ...
+[INFO][2024-04-18 00:37:24][plugin_manager.py:41] - Plugin Role_v1.0 registered, path=./plugins/role
+[INFO][2024-04-18 00:37:24][plugin_manager.py:41] - Plugin linkai_v0.1.0 registered, path=./plugins/linkai
+[INFO][2024-04-18 00:37:24][plugin_manager.py:41] - Plugin Dungeon_v1.0 registered, path=./plugins/dungeon
+[INFO][2024-04-18 00:37:24][plugin_manager.py:41] - Plugin BDunit_v0.1 registered, path=./plugins/bdunit
+[INFO][2024-04-18 00:37:24][plugin_manager.py:41] - Plugin Finish_v1.0 registered, path=./plugins/finish
+[INFO][2024-04-18 00:37:24][plugin_manager.py:41] - Plugin Godcmd_v1.0 registered, path=./plugins/godcmd
+[INFO][2024-04-18 00:37:24][plugin_manager.py:41] - Plugin Hello_v0.1 registered, path=./plugins/hello
+[INFO][2024-04-18 00:37:24][plugin_manager.py:41] - Plugin Banwords_v1.0 registered, path=./plugins/banwords
+[INFO][2024-04-18 00:37:24][plugin_manager.py:41] - Plugin Keyword_v0.1 registered, path=./plugins/keyword
+[WARNING][2024-04-18 00:37:24][plugin_manager.py:113] - Failed to import plugin tool: No module named 'chatgpt_tool_hub'
+[INFO][2024-04-18 00:37:24][godcmd.py:194] - [Godcmd] 因未设置口令，本次的临时口令为8312。
+[INFO][2024-04-18 00:37:24][godcmd.py:210] - [Godcmd] inited
+[INFO][2024-04-18 00:37:24][keyword.py:40] - [keyword] {}
+[INFO][2024-04-18 00:37:24][keyword.py:42] - [keyword] inited.
+[INFO][2024-04-18 00:37:24][linkai.py:33] - [LinkAI] inited, config={'group_app_map': {'测试群名1': 'default', '测试群名2': 'Kv2fXJcH'}, 'midjourney': {'enabled': True, 'auto_translate': True, 'img_proxy': True, 'max_tasks': 3, 'max_tasks_per_user': 1, 'use_image_create_prefix': True}, 'summary': {'enabled': True, 'group_enabled': True, 'max_file_size': 20000, 'type': ['FILE', 'SHARING', 'IMAGE']}}
+[INFO][2024-04-18 00:37:24][role.py:69] - [Role] inited
+[INFO][2024-04-18 00:37:24][dungeon.py:56] - [Dungeon] inited
+[INFO][2024-04-18 00:37:24][hello.py:24] - [Hello] inited
+[INFO][2024-04-18 00:37:24][finish.py:23] - [Finish] inited
+[INFO][2024-04-18 00:37:49][app.py:17] - signal 2 received, exiting...
+[INFO][2024-04-18 00:37:49][config.py:186] - [Config] User datas saved.
+[INFO][2024-04-18 00:38:02][config.py:198] - 配置文件不存在，将使用config-template.json模板
+[INFO][2024-04-18 00:38:02][config.py:227] - [INIT] load config: {'channel_type': 'wx', 'model': 'gpt-3.5-turbo', 'open_ai_api_key': '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', 'text_to_image': 'dall-e-3', 'voice_to_text': 'openai', 'text_to_voice': 'openai', 'proxy': '', 'hot_reload': False, 'single_chat_prefix': [''], 'single_chat_reply_prefix': '[来自智慧崑崑的回复]', 'group_chat_prefix': ['@智慧崑崑'], 'group_name_white_list': [''], 'group_chat_in_one_session': [''], 'image_create_prefix': ['画', 'Draw', 'draw'], 'speech_recognition': True, 'group_speech_recognition': False, 'voice_reply_voice': False, 'conversation_max_tokens': 2500, 'expires_in_seconds': 3600, 'character_desc': '你是由南南搭建的智能助手崑崑，是張崑崙書院的一员，旨在帮助人们同学们解决问题。如果问题涉及中国政治，中国相关的敏感话题，中国的政治人物，辱华，色情，暴力，违法犯罪，反动等能容，你需要拒绝回答并给出警告。', 'temperature': 0.7, 'top_p': 1, 'subscribe_msg': '感谢您的关注！\n这里是智慧崑崑，可以自由对话。\n支持语音对话。\n支持图片输入。\n支持图片输出，画字开头的消息将按要求创作图片。', 'use_linkai': True, 'linkai_api_key': 'Link_9hKIC12bVXDKem2X8h68mjVv68WybbXRm6PHhgZBJE', 'linkai_app_code': 'iy6LQecp'}
+[INFO][2024-04-18 00:38:02][config.py:175] - [Config] User datas loaded.
+[WARNING][2024-04-18 00:38:02][audio_convert.py:9] - import pysilk failed, wechaty voice message will not be supported.
+[INFO][2024-04-18 00:38:02][plugin_manager.py:50] - Loading plugins config...
+[INFO][2024-04-18 00:38:02][plugin_manager.py:88] - Scaning plugins ...
+[INFO][2024-04-18 00:38:02][plugin_manager.py:41] - Plugin Role_v1.0 registered, path=./plugins/role
+[INFO][2024-04-18 00:38:02][plugin_manager.py:41] - Plugin linkai_v0.1.0 registered, path=./plugins/linkai
+[INFO][2024-04-18 00:38:02][plugin_manager.py:41] - Plugin Dungeon_v1.0 registered, path=./plugins/dungeon
+[INFO][2024-04-18 00:38:02][plugin_manager.py:41] - Plugin BDunit_v0.1 registered, path=./plugins/bdunit
+[INFO][2024-04-18 00:38:02][plugin_manager.py:41] - Plugin Finish_v1.0 registered, path=./plugins/finish
+[INFO][2024-04-18 00:38:02][plugin_manager.py:41] - Plugin Godcmd_v1.0 registered, path=./plugins/godcmd
+[INFO][2024-04-18 00:38:02][plugin_manager.py:41] - Plugin Hello_v0.1 registered, path=./plugins/hello
+[INFO][2024-04-18 00:38:02][plugin_manager.py:41] - Plugin Banwords_v1.0 registered, path=./plugins/banwords
+[INFO][2024-04-18 00:38:02][plugin_manager.py:41] - Plugin Keyword_v0.1 registered, path=./plugins/keyword
+[WARNING][2024-04-18 00:38:02][plugin_manager.py:113] - Failed to import plugin tool: No module named 'chatgpt_tool_hub'
+[INFO][2024-04-18 00:38:02][godcmd.py:194] - [Godcmd] 因未设置口令，本次的临时口令为3170。
+[INFO][2024-04-18 00:38:02][godcmd.py:210] - [Godcmd] inited
+[INFO][2024-04-18 00:38:02][keyword.py:40] - [keyword] {}
+[INFO][2024-04-18 00:38:02][keyword.py:42] - [keyword] inited.
+[INFO][2024-04-18 00:38:02][linkai.py:33] - [LinkAI] inited, config={'group_app_map': {'测试群名1': 'default', '测试群名2': 'Kv2fXJcH'}, 'midjourney': {'enabled': True, 'auto_translate': True, 'img_proxy': True, 'max_tasks': 3, 'max_tasks_per_user': 1, 'use_image_create_prefix': True}, 'summary': {'enabled': True, 'group_enabled': True, 'max_file_size': 20000, 'type': ['FILE', 'SHARING', 'IMAGE']}}
+[INFO][2024-04-18 00:38:02][role.py:69] - [Role] inited
+[INFO][2024-04-18 00:38:02][dungeon.py:56] - [Dungeon] inited
+[INFO][2024-04-18 00:38:02][hello.py:24] - [Hello] inited
+[INFO][2024-04-18 00:38:02][finish.py:23] - [Finish] inited
+[INFO][2024-04-18 00:38:14][app.py:17] - signal 2 received, exiting...
+[INFO][2024-04-18 00:38:14][config.py:186] - [Config] User datas saved.
