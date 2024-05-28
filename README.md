@@ -94,6 +94,7 @@ pip3 install -r requirements.txt
 
 + 个人聊天中，需要以 "bot"或"@bot" 为开头的内容触发机器人，对应配置项 `single_chat_prefix` (如果不需要以前缀触发可以填写  `"single_chat_prefix": [""]`)
 + 机器人回复的内容会以 "[bot] " 作为前缀， 以区分真人，对应的配置项为 `single_chat_reply_prefix` (如果不需要前缀可以填写 `"single_chat_reply_prefix": ""`)
++ 可以在正式答案回复前/后添加自动回复，在channel/wechat/wechat_channel.py中搜索“自动回复”来修改对应代码
 
 **2.群组聊天**
 
@@ -121,12 +122,6 @@ pip3 install -r requirements.txt
 + `hot_reload`: 程序退出后，暂存微信扫码状态，默认关闭。
 + `character_desc` 配置中保存着你对机器人说的一段话，他会记住这段话并作为他的设定，你可以为他定制任何人格      (关于会话上下文的更多内容参考该 [issue](https://github.com/zhayujie/chatgpt-on-wechat/issues/43))
 + `subscribe_msg`：订阅消息，公众号和企业微信channel中请填写，当被订阅时会自动回复， 可使用特殊占位符。目前支持的占位符有{trigger_prefix}，在程序中它会自动替换成bot的触发词。
-
-**5.LinkAI配置**
-
-+ `use_linkai`: 是否使用LinkAI接口，开启后可国内访问，使用知识库和 `Midjourney` 绘画, 参考 [文档](https://link-ai.tech/platform/link-app/wechat)
-+ `linkai_api_key`: LinkAI Api Key，可在 [控制台](https://link-ai.tech/console/interface) 创建
-+ `linkai_app_code`: LinkAI 应用code，选填
 
 ## 运行
 
