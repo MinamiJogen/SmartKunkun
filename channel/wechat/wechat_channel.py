@@ -167,13 +167,16 @@ class WechatChannel(ChatChannel):
             context = self._compose_context(cmsg.ctype, forbidWord+cmsg.content, isgroup=False, msg=cmsg)
         # 调用gpt4所需前缀
         prefix=["GPT-4", "gpt-4","GPT4","gpt4"]
+        # 答案前的自动回复
         itchat.send("崑崑還在測試階段，若您認為回覆有誤，請反饋：https://forms.gle/fH5kMp2uWqUekevF7", toUserName=cmsg.other_user_id)
-        # 生成自动回复
+        # 调用GPT4时的自动回复
         if split_strings[0] in prefix:
             auto_reply="GPT-4 is generating response. This may take a bit of time. GPT-4正在生成回复，这可能需要一些时间。"
             itchat.send(auto_reply, toUserName=cmsg.other_user_id)
         if context:
             self.produce(context)
+        # 答案后的自动回复
+        # itchat.send("崑崑還在測試階段，若您認為回覆有誤，請反饋：https://forms.gle/fH5kMp2uWqUekevF7", toUserName=cmsg.other_user_id)
 
     @time_checker
     @_check
