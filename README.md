@@ -204,7 +204,7 @@ pip3 install -r requirements.txt
 
 + 个人聊天中，需要以 "bot"或"@bot" 为开头的内容触发机器人，对应配置项 `single_chat_prefix` (如果不需要以前缀触发可以填写  `"single_chat_prefix": [""]`)
 + 机器人回复的内容会以 "[bot] " 作为前缀， 以区分真人，对应的配置项为 `single_chat_reply_prefix` (如果不需要前缀可以填写 `"single_chat_reply_prefix": ""`)
-+ 可以在正式答案回复前/后添加自动回复，在 `channel/wechat/wechat_channel.py` 中搜索“自动回复”来修改对应代码
++ 可以在正式答案回复前/后添加自动回复，在 `channel/wechat/wechat_channel.py` 中搜索 `自动回复` 来修改对应代码
 
 **2.群组聊天**
 
